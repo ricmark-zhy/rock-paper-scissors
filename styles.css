@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(29, 29, 37);
+}
+
+.container,
+.title,
+#rpsButtons,
+.round-container,
+.player-container,
+.versus-container {
+  display: flex;
+}
+
+.title {
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  font-size: 40px;
+}
+
+h2{
+  font-size: 32px;
+  color: blue;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+  margin: 30px auto;
+  background-color: aliceblue;
+  width: fit-content;
+  padding: 42px;
+  gap: 30px;
+}
+
+.round-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+.round-count {
+  background-color: white;
+  padding: 2px 6px;
+  border: 1px solid black;
+  /* font-size: 19px */
+}
+
+.player-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stats{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#rpsButtons {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  gap: 15px;
+}
+
+.choice-buttons {
+  padding: 2px 12px;
+  font-size: 16px;
+}
+
+.versus-container{
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.versus{
+  font-family: "Finger Paint";
+  font-weight: 600;
+  color: red;
+}
