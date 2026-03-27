@@ -18,7 +18,8 @@ body {
 #rpsButtons,
 .round-container,
 .player-container,
-.versus-container {
+.versus-container,
+.modal {
   display: flex;
 }
 
@@ -36,12 +37,13 @@ h2{
   color: blue;
 }
 
-.container {
+.container, .modal {
   flex-direction: column;
   align-items: center;
   margin: 30px auto;
   background-color: aliceblue;
   width: fit-content;
+  height: fit-content;
   padding: 42px;
   gap: 30px;
 }
@@ -93,4 +95,53 @@ h2{
   font-family: "Finger Paint";
   font-weight: 600;
   color: red;
+}
+
+.modal-container{
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  /* opacity: 0; */
+}
+
+.choice-result{
+  text-align: center;
+}
+
+.score-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  gap: 6px;
+}
+
+.score-board{
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+}
+
+.score{
+  text-align: center;
+}
+
+.score-board h3,
+.score-board p {
+  font-size: 22px;
+}
+
+#nextRound {
+  padding: 4px 16px;
+  font-size: larger;
+}
+
+.modal{
+  gap: 36px;
 }
