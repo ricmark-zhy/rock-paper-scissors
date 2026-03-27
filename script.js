@@ -54,23 +54,54 @@ function playRound(humanChoice, computerChoice){
   }
 }
 
-function playGame(){
-  for (let i = 0; i < 5; i++){
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
-    // console.log(computerChoice);
-    console.log(`Round ${i + 1}`);
-    playRound(humanChoice, computerChoice);
-  }
-  console.log(`Human: ${humanScore}, Computer: ${computerScore}.`);
-  if (humanScore > computerScore){
-    console.log("Human wins!");
-  } else if (computerScore > humanScore) {
-    console.log("Computer wins!");
-  } else {
-    console.log("It's a tie.");
-  }
-}
 
-playGame();
+const rpsButtons = document.querySelector('#rpsButtons');
+
+rpsButtons.addEventListener('click', (event) =>{
+  let target = event.target;
+  let computerChoice = getComputerChoice();
+  switch (target.id){
+    case 'rock':
+      playRound('rock', computerChoice);
+      break;
+    case 'paper':
+      playRound('paper', computerChoice);
+      break;
+    case 'scissors':
+      playRound('scissors', computerChoice);
+      break;
+  }
+})
+
+
+
+
+
+
+
+
+
+// function playGame(){
+//   for (let i = 0; i < 5; i++){
+//     let humanChoice = getHumanChoice();
+//     let computerChoice = getComputerChoice();
+
+//     // console.log(computerChoice);
+//     console.log(`Round ${i + 1}`);
+//     playRound(humanChoice, computerChoice);
+//   }
+//   console.log(`Human: ${humanScore}, Computer: ${computerScore}.`);
+//   if (humanScore > computerScore){
+//     console.log("Human wins!");
+//   } else if (computerScore > humanScore) {
+//     console.log("Computer wins!");
+//   } else {
+//     console.log("It's a tie.");
+//   }
+// }
+
+// playGame();
