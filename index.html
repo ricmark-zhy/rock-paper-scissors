@@ -24,7 +24,7 @@
           <div id="rpsButtons">
             <button type="button" class="choice-buttons" id="rock"><img class="player rock" src="img/player_rock.PNG"></button>
             <button type="button" class="choice-buttons" id="paper"><img class="player paper" src="img/player_paper.PNG"></button>
-            <button type="button" class="choice-buttons" id="scissors"><img class="player scissors" src="img/player_scissors2.PNG"></button>
+            <button type="button" class="choice-buttons" id="scissors"><img class="player scissors" src="img/player_scissors.PNG"></button>
           </div>
           <p class="player-stats stats">You: <span id="playerScore">0</span></p>
         </div>
@@ -38,10 +38,16 @@
     <div class="modal">
       <div class="result">
         <h1 id="result-title">You win the round!</h1>
-        <p class="choice-result">
-          <span id="resultLine1">You choose rock, computer choose scissors</span><br>
-          <span id="resultLine2">rock beats scissors</span>
-        </p>
+        <div class="fight-result">
+          <div class="choice-result">
+            <p>You</p>
+            <img id="playerChoiceResult" src="./img/player_scissors.PNG">
+          </div>
+          <div class="choice-result">
+            <p>Computer</p>
+            <img id="computerChoiceResult" src="./img/computer_paper.PNG">
+          </div>
+        </div>
       </div>
       <div class="score-container">
         <h2>Score</h2>

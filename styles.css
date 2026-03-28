@@ -149,3 +149,20 @@ h2{
 .modal{
   gap: 36px;
 }
+
+.modal-container {
+  /* opacity: 0; */
+  pointer-events: none;
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fight-result {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
