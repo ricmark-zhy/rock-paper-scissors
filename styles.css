@@ -178,8 +178,7 @@ h2{
   width: fit-content;
 }
 
-.player-show-plus,
-.computer-show-plus {
+.plus-one   {
   color: green;
   font-weight: 600;
   font-size: 12px;
@@ -187,6 +186,10 @@ h2{
   top: 0;
   float: right;
   display: none;
+}
+
+.plus-one.show-plus{ 
+  display: block;
 }
 
 .score{

@@ -16,7 +16,7 @@ function getHumanChoice(){
 }
 
 let humanScore = 0,
-computerScore = 0;
+computerScore = 0, round = 1;
 
 //img srcs
 const playerRock = './img/player_rock.PNG';
@@ -28,43 +28,36 @@ const computerScissors = './img/computer_scissors.PNG';
 //
 
 function playRound(humanChoice, computerChoice){
-  humanChoice = humanChoice.toLowerCase();
 
-  if (humanChoice.charAt(0) === 'r') {
-    humanChoice = 'rock';
-  } else if (humanChoice.charAt(0) === 'p') {
-      humanChoice = 'paper';
-  } else if (humanChoice.charAt(0) === 's') {
-      humanChoice = 'scissors';
-  }
+  round++;
 
   console.log(`You choose ${humanChoice}, computer choose ${computerChoice}.`)
+
+  let playerWon = false, tie = false;
 
   if (humanChoice === 'rock' && computerChoice === 'scissors'){
     setImgSrc(playerRock, computerScissors);
     console.log("You win, rock beats scissors!");
-    humanScore++;
+    playerWon = true;
   } else if (humanChoice === 'rock' && computerChoice === 'paper'){
     setImgSrc(playerRock, computerPaper);
     console.log("You lose, paper beats rock!");
-    computerScore++;
   } else if (humanChoice === 'paper' && computerChoice === 'rock'){
     setImgSrc(playerPaper, computerRock);
+    playerWon = true;
     console.log("You win, paper beats rock!");
-    humanScore++;
   } else if (humanChoice === 'paper' && computerChoice === 'scissors'){
     setImgSrc(playerPaper, computerScissors);
     console.log("You lose, scissors beats paper!");
-    computerScore++;
   } else if (humanChoice === 'scissors' && computerChoice === 'paper'){
     setImgSrc(playerScissors, computerPaper);
+    playerWon = true;
     console.log("You win, scissors beats paper!");
-    humanScore++;
   } else if (humanChoice === 'scissors' && computerChoice === 'rock'){
     setImgSrc(playerScissors, computerRock);
     console.log("You lose, rock beats scissors!");
-    computerScore++;
   } else {
+    tie = true;
     if (humanChoice === 'rock'){
       setImgSrc(playerRock, computerRock);
     } else if (humanChoice === 'paper'){
@@ -74,12 +67,39 @@ function playRound(humanChoice, computerChoice){
     }
     console.log(`It's a tie! You and computer both chose ${humanChoice}. `);
   }
+
+  if (tie){
+    resultTitle.textContent = tieRoundText;
+    playerPlusOne.classList.remove('show-plus');
+    computerPlusOne.classList.remove('show-plus');
+  } else if (playerWon){
+    resultTitle.textContent = winRoundText;
+    humanScore++;
+    playerPlusOne.classList.add('show-plus');
+    computerPlusOne.classList.remove('show-plus');
+    console.log("haha")
+  } else {
+    resultTitle.textContent = loseRoundText;
+    computerScore++;
+    playerPlusOne.classList.remove('show-plus');
+    computerPlusOne.classList.add('show-plus');
+    console.log('huhu');
+  }
+
+  playerScoreModal.textContent = `${humanScore}`;
+  computerScoreMdal.textContent = `${computerScore}`;
 }
 
 //modal elements
 const resultTitle = document.querySelector('#resultTitle');
-const playerChoice = document.querySelector('#playerChoice')
-, computerChoice = document.querySelector('#computerChoice');
+const playerChoice = document.querySelector('#playerChoice'), 
+computerChoice = document.querySelector('#computerChoice'),
+totalPlayerScore = document.querySelector('#playerScore'),
+totalComputerScore = document.querySelector('#computerScore'),
+playerPlusOne = document.querySelector('.player'),
+computerPlusOne = document.querySelector('.computer'),
+playerScoreModal = document.querySelector('#playerScoreModal'),
+computerScoreMdal = document.querySelector('#computerScoreModal');
 //
 
 function setImgSrc(playerChoiceSrc, computerChoiceSrc){
@@ -92,9 +112,9 @@ function setImgSrc(playerChoiceSrc, computerChoiceSrc){
   computerChoice.setAttribute('src', computerChoiceSrc);
 }
 
-const youWin = 'You win the round!',
-youLose = 'You lose the round!',
-tie = "It's a tie!";
+const winRoundText = 'You win the round!',
+loseRoundText = 'You lose the round!',
+tieRoundText = "It's a tie!";
 let result = '';
 
 const rock = document.querySelector('#rock');
@@ -129,6 +149,8 @@ rpsButtons.addEventListener('click', (event) =>{
 nextRoundButton.addEventListener('click', (event) => {
   modalContainer.classList.remove('show');
 })
+
+
 
 console.log("test");
 console.log('rpsButtons element:', rpsButtons);
