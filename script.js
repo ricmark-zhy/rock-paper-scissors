@@ -69,17 +69,17 @@ function playRound(humanChoice, computerChoice){
   }
 
   if (tie){
-    resultTitle.textContent = tieRoundText;
+    resultTitle.textContent = `Round ${round - 1}: `+tieRoundText;
     playerPlusOne.classList.remove('show-plus');
     computerPlusOne.classList.remove('show-plus');
   } else if (playerWon){
-    resultTitle.textContent = winRoundText;
+    resultTitle.textContent = `Round ${round - 1}: `+winRoundText;
     humanScore++;
     playerPlusOne.classList.add('show-plus');
     computerPlusOne.classList.remove('show-plus');
     console.log("haha")
   } else {
-    resultTitle.textContent = loseRoundText;
+    resultTitle.textContent = `Round ${round - 1}: `+loseRoundText;
     computerScore++;
     playerPlusOne.classList.remove('show-plus');
     computerPlusOne.classList.add('show-plus');
@@ -88,6 +88,15 @@ function playRound(humanChoice, computerChoice){
 
   playerScoreModal.textContent = `${humanScore}`;
   computerScoreMdal.textContent = `${computerScore}`;
+  
+
+  if (round === 6){
+    humanScore = 0;
+    computerScore = 0;
+    round = 1;
+  }
+
+  roundCount.textContent = `${round}`;
 }
 
 //modal elements
@@ -100,6 +109,7 @@ playerPlusOne = document.querySelector('.player'),
 computerPlusOne = document.querySelector('.computer'),
 playerScoreModal = document.querySelector('#playerScoreModal'),
 computerScoreMdal = document.querySelector('#computerScoreModal');
+const nextRoundButton = document.querySelector('#nextRound');
 //
 
 function setImgSrc(playerChoiceSrc, computerChoiceSrc){
@@ -112,19 +122,22 @@ function setImgSrc(playerChoiceSrc, computerChoiceSrc){
   computerChoice.setAttribute('src', computerChoiceSrc);
 }
 
-const winRoundText = 'You win the round!',
-loseRoundText = 'You lose the round!',
+const winRoundText = 'You win!',
+loseRoundText = 'You lose!',
 tieRoundText = "It's a tie!";
 let result = '';
 
+
+//main page elements
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-
 const rpsButtons = document.querySelector('#rpsButtons');
 const modalContainer = document.querySelector('.modal-container');
-const nextRoundButton = document.querySelector('#nextRound');
+const roundCount = document.querySelector('#roundCount');
+const playerScoreText = document.querySelector('#playerScore');
+const computerScoreText = document.querySelector('#computerScore');
 
 rpsButtons.addEventListener('click', (event) =>{
   let target = event.target;
@@ -148,6 +161,8 @@ rpsButtons.addEventListener('click', (event) =>{
 
 nextRoundButton.addEventListener('click', (event) => {
   modalContainer.classList.remove('show');
+  playerScoreText.textContent = `${humanScore}`;
+  computerScoreText.textContent = `${computerScore}`;
 })
 
 
