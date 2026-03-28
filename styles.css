@@ -85,6 +85,10 @@ h2{
   font-size: 16px;
 }
 
+.scissors{
+  width: 80px;
+}
+
 .versus-container{
   flex-direction: column;
   align-items: center;
