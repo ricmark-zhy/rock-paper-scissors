@@ -151,8 +151,14 @@ h2{
 }
 
 .modal-container {
-  /* opacity: 0; */
+  opacity: 0;
   pointer-events: none;
+  /* transition: opacity 0.3s ease; */
+}
+
+.modal-container.show{
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .result{

@@ -60,10 +60,13 @@ const scissors = document.querySelector('#scissors');
 
 
 const rpsButtons = document.querySelector('#rpsButtons');
+const modalContainer = document.querySelector('.modal-container');
+const nextRoundButton = document.querySelector('#nextRound');
 
 rpsButtons.addEventListener('click', (event) =>{
   let target = event.target;
   let computerChoice = getComputerChoice();
+
   switch (target.id){
     case 'rock':
       playRound('rock', computerChoice);
@@ -75,6 +78,12 @@ rpsButtons.addEventListener('click', (event) =>{
       playRound('scissors', computerChoice);
       break;
   }
+
+  modalContainer.classList.add('show');
+});
+
+nextRoundButton.addEventListener('click', (event) => {
+  modalContainer.classList.remove('show');
 })
 
 
