@@ -10,11 +10,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice(){
-  let humanChoice = prompt("'r' for rock, 'p' for paper, 's' scissors?");
-  return humanChoice;
-}
-
 let humanScore = 0,
 computerScore = 0, round = 1;
 
@@ -99,7 +94,7 @@ function playRound(humanChoice, computerChoice){
   roundCount.textContent = `${round}`;
 }
 
-//modal elements
+//round result modal elements
 const resultTitle = document.querySelector('#resultTitle');
 const playerChoice = document.querySelector('#playerChoice'), 
 computerChoice = document.querySelector('#computerChoice'),
@@ -165,37 +160,6 @@ nextRoundButton.addEventListener('click', (event) => {
   computerScoreText.textContent = `${computerScore}`;
 })
 
-
-
-console.log("test");
-console.log('rpsButtons element:', rpsButtons);
-console.log('Does it exist?', !!rpsButtons);
-
-
-
-
-
-
-
-
-
-// function playGame(){
-//   for (let i = 0; i < 5; i++){
-//     let humanChoice = getHumanChoice();
-//     let computerChoice = getComputerChoice();
-
-//     // console.log(computerChoice);
-//     console.log(`Round ${i + 1}`);
-//     playRound(humanChoice, computerChoice);
-//   }
-//   console.log(`Human: ${humanScore}, Computer: ${computerScore}.`);
-//   if (humanScore > computerScore){
-//     console.log("Human wins!");
-//   } else if (computerScore > humanScore) {
-//     console.log("Computer wins!");
-//   } else {
-//     console.log("It's a tie.");
-//   }
-// }
-
-// playGame();
+//Todo
+// 1. Add a match result modal
+// 2. Add a tie breaker if score is tie in last round
