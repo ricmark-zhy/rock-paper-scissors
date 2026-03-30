@@ -27,10 +27,10 @@
             <button type="button" class="choice-buttons" id="paper"><img class="choice paper" src="img/player_paper.PNG"></button>
             <button type="button" class="choice-buttons" id="scissors"><img class="choice scissors" src="img/player_scissors.PNG"></button>
           </div>
-          <p class="player-stats stats">You: <span id="playerScore">0</span></p>
+          <p class="player-stats stats">Anda: <span id="playerScore">0</span></p>
         </div>
         <p class="versus">VS</p>
-        <p class="computer-stats stats">Computer: <span id="computerScore">0</span></p>
+        <p class="computer-stats stats">Choychoy: <span id="computerScore">0</span></p>
       </div>
     </div>
   </div>
@@ -40,28 +40,30 @@
       <div class="result">
         <h1 id="resultTitle">You win the round!</h1>
         <div class="fight-result">
+          <img class="reaction-image" id="playerReact" src="./img/player_lose.png">
           <div class="choice-result">
-            <p>You</p>
-            <img id="playerChoice" src="./img/player_scissors.PNG">
+            <p>Anda</p>
+            <img id="playerChoice">
           </div>
           <div class="choice-result">
-            <p>Computer</p>
-            <img id="computerChoice" src="./img/computer_paper.PNG">
+            <p>Choychoy</p>
+            <img class="computer-image" id="computerChoice">
           </div>
+          <img class="reaction-image" id="computerReact" src="./img/computer_win.PNG">
         </div>
       </div>
       <div class="score-container">
         <h2>Score</h2>
         <div class="score-board">
           <div class="score">
-            <h3>You</h3>
+            <h3>Anda</h3>
             <p class="score-text">
               <span id="playerScoreModal">0</span>
               <span class="player plus-one">+1</span>
             </p>
           </div>
           <div class="score">
-            <h3>Computer</h3>
+            <h3>Choychoy</h3>
             <p class="score-text">
               <span id="computerScoreModal">0</span>
               <span class="computer plus-one">+1</span>
@@ -74,6 +76,11 @@
   </div>
   
 
+  <!-- <div class="final-result-container">
+    <div class="final-result-card">
+      <div class="title"
+    </div>
+  </div> -->
 
   <script src="./script.js"></script>
 </body>

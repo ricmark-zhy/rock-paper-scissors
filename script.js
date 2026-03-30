@@ -17,9 +17,17 @@ computerScore = 0, round = 1;
 const playerRock = './img/player_rock.PNG';
 const playerPaper = './img/player_paper.PNG';
 const playerScissors = './img/player_scissors.PNG';
+const playerWinImg = './img/player_win.png';
+const playerLoseImg = './img/player_lose.png';
+const playerTieImg = './img/player_tie.png';
+
 const computerRock = './img/computer_rock.PNG';
 const computerPaper = './img/computer_paper.PNG';
 const computerScissors = './img/computer_scissors.PNG';
+const computerWinImg = './img/computer_win.PNG';
+const computerLoseImg = './img/computer_lose.PNG';
+const computerTieImg = './img/computer_tie.PNG';
+
 //
 
 function playRound(humanChoice, computerChoice){
@@ -64,21 +72,34 @@ function playRound(humanChoice, computerChoice){
   }
 
   if (tie){
+
     resultTitle.textContent = `Round ${round - 1}: `+tieRoundText;
     playerPlusOne.classList.remove('show-plus');
     computerPlusOne.classList.remove('show-plus');
+
+    playerReact.setAttribute('src', playerTieImg);
+    computerReact.setAttribute('src', computerTieImg);
+
   } else if (playerWon){
+
     resultTitle.textContent = `Round ${round - 1}: `+winRoundText;
     humanScore++;
     playerPlusOne.classList.add('show-plus');
     computerPlusOne.classList.remove('show-plus');
-    console.log("haha")
+
+    playerReact.setAttribute('src', playerWinImg);
+    computerReact.setAttribute('src', computerLoseImg);
+
   } else {
+
     resultTitle.textContent = `Round ${round - 1}: `+loseRoundText;
     computerScore++;
     playerPlusOne.classList.remove('show-plus');
     computerPlusOne.classList.add('show-plus');
     console.log('huhu');
+    playerReact.setAttribute('src', playerLoseImg);
+    computerReact.setAttribute('src', computerWinImg);
+
   }
 
   playerScoreModal.textContent = `${humanScore}`;
@@ -92,6 +113,10 @@ function playRound(humanChoice, computerChoice){
   }
 
   roundCount.textContent = `${round}`;
+  setTimeout(() => {
+    playerReact.classList.add('show');
+    computerReact.classList.add('show');
+  }, 1500);
 }
 
 //round result modal elements
@@ -105,6 +130,9 @@ computerPlusOne = document.querySelector('.computer'),
 playerScoreModal = document.querySelector('#playerScoreModal'),
 computerScoreMdal = document.querySelector('#computerScoreModal');
 const nextRoundButton = document.querySelector('#nextRound');
+const playerReact = document.querySelector('#playerReact');
+const computerReact = document.querySelector('#computerReact');
+const reactionImages = document.querySelectorAll('.reaction-images');
 //
 
 function setImgSrc(playerChoiceSrc, computerChoiceSrc){
@@ -119,7 +147,7 @@ function setImgSrc(playerChoiceSrc, computerChoiceSrc){
 
 const winRoundText = 'You win!',
 loseRoundText = 'You lose!',
-tieRoundText = "It's a tie!";
+tieRoundText = "Tabla!";
 let result = '';
 
 
@@ -158,8 +186,15 @@ nextRoundButton.addEventListener('click', (event) => {
   modalContainer.classList.remove('show');
   playerScoreText.textContent = `${humanScore}`;
   computerScoreText.textContent = `${computerScore}`;
+  playerReact.classList.remove('show');
+  computerReact.classList.remove('show');
 })
 
+function showReaction() {
+    reactionImages.forEach(img => {
+        img.classList.add('show');
+    });
+}
 //Todo
 // 1. Add a match result modal
 // 2. Add a tie breaker if score is tie in last round
